@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="gameovercss.css" />
+    <script src="https://kit.fontawesome.com/976416f871.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+     <h1>Game Over</h1>
+     <div>
+      <h3 id="totleScore">1000</h3>
+     </div>
+     <div id="wordDiv"></div>
+     
+    </div>
+
+  </body>
+</html>
+<script type="module">
+let totleScoreDiv=document.getElementById("totleScore")
+let wordDiv=document.getElementById("wordDiv");
+ 
+const totleScore=localStorage.getItem("totleScore");
+console.log(totleScore,"------")
+totleScoreDiv.innerText="Totle Score: "+totleScore
+
+const words=JSON.parse(localStorage.getItem("words"))
+for(let key in words){
+ let word=document.createElement("p")
+ word.setAttribute("class","word")
+ word.innerText=key +" - "+ words[key]
+ wordDiv.append(word)
+
+}
+
+
+</script>
+
